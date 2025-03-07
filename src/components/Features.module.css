@@ -5,7 +5,7 @@
 
 .container {
   width: 100%;
-  max-width: 1800px; /* Увеличиваем максимальную ширину контейнера */
+  max-width: 1400px; /* Увеличиваем максимальную ширину контейнера */
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -29,7 +29,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  gap: 15px; /* Уменьшаем разрыв между карточками */
+  gap: 30px; /* Увеличиваем расстояние между карточками */
 }
 
 .featureCard {
@@ -48,7 +48,7 @@
 
 .featureImage {
   width: 100%;
-  height: 200px; /* Увеличиваем высоту изображения */
+  height: 300px; /* Увеличиваем высоту изображения с 200px до 300px */
   object-fit: cover;
 }
 
@@ -56,18 +56,18 @@
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  height: calc(100% - 200px); /* Вычитаем высоту изображения */
+  height: calc(100% - 300px); /* Вычитаем высоту изображения */
 }
 
 .featureTitle {
-  font-size: 1.2rem;
+  font-size: 1.4rem; /* Увеличиваем размер заголовка */
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: #6d4534;
 }
 
 .featureDescription {
-  font-size: 0.9rem;
+  font-size: 1.1rem; /* Увеличиваем размер текста */
   color: #666;
   margin-bottom: 1.5rem;
   line-height: 1.5;
@@ -80,8 +80,8 @@
   color: white;
   border: none;
   border-radius: 30px;
-  padding: 0.6rem 1.2rem;
-  font-size: 0.9rem;
+  padding: 0.8rem 1.5rem; /* Увеличиваем размер кнопки */
+  font-size: 1rem;
   text-decoration: none;
   transition: background-color 0.3s ease;
   text-align: center;
@@ -93,25 +93,12 @@
 
 @media (max-width: 1000px) {
   .featuresRow {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 20px;
-    /* Скрываем полосу прокрутки, но сохраняем функциональность */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  
-  .featuresRow::-webkit-scrollbar {
-    display: none;
+    flex-wrap: wrap;
   }
   
   .featureCard {
-    flex: 0 0 300px; /* Фиксированная ширина для мобильных устройств */
-    margin-right: 15px;
-  }
-  
-  .featureCard:last-child {
-    margin-right: 0;
+    flex: 0 0 calc(50% - 15px);
+    margin-bottom: 30px;
   }
 }
 
@@ -121,12 +108,10 @@
   }
   
   .featureCard {
-    flex: 0 0 280px;
+    flex: 0 0 100%;
   }
-}
-
-@media (max-width: 480px) {
-  .featureCard {
-    flex: 0 0 260px;
+  
+  .featureImage {
+    height: 250px; /* Немного уменьшаем высоту изображения на мобильных устройствах */
   }
 }

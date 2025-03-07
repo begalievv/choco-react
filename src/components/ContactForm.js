@@ -139,20 +139,7 @@ const ContactForm = () => {
                     </button>
                 </form>
 
-                <div className={styles.socialIcons}>
-                    <a href="#" className={styles.socialIcon}>
-                        <FaFacebook />
-                    </a>
-                    <a href="#" className={styles.socialIcon}>
-                        <FaTwitter />
-                    </a>
-                    <a href="#" className={styles.socialIcon}>
-                        <FaInstagram />
-                    </a>
-                    <a href="#" className={styles.socialIcon}>
-                        <FaTiktok />
-                    </a>
-                </div>
+               
             </div>
         </section>
     );
