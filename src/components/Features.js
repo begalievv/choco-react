@@ -2,27 +2,34 @@ import React from 'react';
 import styles from './Features.module.css';
 
 const Features = () => {
-  // Оставляем только первые три карточки: Уроки, Практика и Обратная связь
+  // Обновленные карточки: 4 штуки с новыми заголовками
   const features = [
     {
       id: 1,
-      title: 'Уроки',
-      description: 'Погрузитесь в мир шоколадного искусства!',
-      image: 'https://r.mobirisesite.com/1166961/assets/images/photo-1618257963164-399348eedb23.jpeg',
-      link: '#more'
+      title: 'УРОКИ',
+      description: 'Базовая теория для старта в профессию',
+      image: 'images/uroki.jpg',
+      link: '#contact'
     },
     {
       id: 2,
-      title: 'Практика',
-      description: 'Создайте свои шедевры под руководством экспертов!',
-      image: 'https://r.mobirisesite.com/1166961/assets/images/photo-1582570675095-9b679953577e.jpeg',
-      link: '#more'
+      title: 'ПРАКТИКА',
+      description: 'Практика по закреплению материала',
+      image: 'images/practice.jpg',
+      link: '#contact'
     },
     {
-      id: 5,
-      title: 'Обратная связь',
-      description: 'Консультации от создателя курса для всех!',
-      image: 'https://r.mobirisesite.com/1166961/assets/images/photo-1599599810769-bcde5a160d32.jpeg',
+      id: 3,
+      title: 'БОНУСЫ',
+      description: 'Эксклюзивные материалы и рецепты',
+      image: 'images/bonus.jpg',
+      link: '#contact'
+    },
+    {
+      id: 4,
+      title: 'ОБРАТНАЯ СВЯЗЬ',
+      description: 'Чат консультаций Мастера',
+      image: 'images/svyaz.jpg',
       link: '#contact'
     }
   ];
@@ -30,10 +37,10 @@ const Features = () => {
   return (
     <section id="features" className={styles.featuresSection}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Что вас ждет</h2>
-        <p className={styles.sectionSubtitle}>5 уроков, 5 практик и бонусы!</p>
+        <h2 className={styles.sectionTitle}>О чем курс?</h2>
+        <p className={styles.sectionSubtitle}>Вас ждет:</p>
         
-        <div className={styles.featuresRow}>
+        <div className={styles.featuresGrid}>
           {features.map(feature => (
             <div key={feature.id} className={styles.featureCard}>
               <img 

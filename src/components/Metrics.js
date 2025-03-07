@@ -12,7 +12,7 @@ const Metrics = () => {
                     </div>
 
                     <div className={styles.metricItem}>
-                        <div className={styles.metricNumber}>3</div>
+                        <div className={styles.metricNumber}>2</div>
                         <div className={styles.metricTitle}>Тарифа на выбор</div>
                     </div>
 

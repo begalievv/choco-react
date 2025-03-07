@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.css';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -11,16 +12,10 @@ const Footer = () => {
 
                 <ul className={styles.footerLinks}>
                     <li className={styles.footerLink}>
-                        <a href="#">Политика</a>
+                        <a href="/privacy" target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
                     </li>
                     <li className={styles.footerLink}>
-                        <a href="#">Условия</a>
-                    </li>
-                    <li className={styles.footerLink}>
-                        <a href="#contact">Контакты</a>
-                    </li>
-                    <li className={styles.footerLink}>
-                        <a href="#">Поддержка</a>
+                        <a href="/oferta" target="_blank" rel="noopener noreferrer">Договор-оферта</a>
                     </li>
                 </ul>
             </div>

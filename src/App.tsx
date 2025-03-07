@@ -17,6 +17,7 @@ import Newsletter from './components/Newsletter';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import ContactInfo from './components/ContactInfo';
+import ForWhom from './components/ForWhom';
 
 function App() {
   return (
@@ -24,13 +25,13 @@ function App() {
       <Navbar />
       <Hero />
       <Features />
+      <Metrics />
+      <ForWhom />
       <Testimonials />
       {/* <Gallery />  */}
-      <RunningText /> {/* Бегущая строка после "Наших шедевров" */}
-      <Metrics />
-      <News />
-      <FAQ />
+      {/* <News /> */}
       <Pricing />
+      <FAQ />
       <Partners />
       <Newsletter />
       <ContactForm />

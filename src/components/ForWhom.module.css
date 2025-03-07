@@ -1,0 +1,125 @@
+.forWhomSection {
+    padding: 80px 0;
+    background-color: #f9efea;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .sectionTitle {
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #632f1f;
+  }
+  
+  .forWhomContent {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+  }
+  
+  .forWhomText {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: center;
+    color: #333;
+  }
+  
+  .programTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #ff7f2a;
+  }
+  
+  .modulesContainer {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 4rem;
+  }
+  
+  .module {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .moduleTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: #632f1f;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .moduleDescription {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  .moduleList {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .moduleList li {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0.7rem;
+    color: #333;
+  }
+  
+  .moduleImage {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .moduleImage img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 992px) {
+    .modulesContainer {
+      flex-direction: column;
+    }
+    
+    .modulesContainer .moduleImage {
+      order: -1;
+      margin-bottom: 2rem;
+    }
+    
+    .moduleImage img {
+      max-width: 500px;
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .sectionTitle {
+      font-size: 2.2rem;
+    }
+    
+    .programTitle {
+      font-size: 2rem;
+    }
+    
+    .moduleTitle {
+      font-size: 1.8rem;
+    }
+  }

@@ -1,65 +1,147 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Testimonials.module.css';
 
 const Testimonials = () => {
-    const testimonials = [
+    // Работы участниц (изображения)
+    const testimonialImages = [
         {
             id: 1,
-            text: 'Этот курс изменил мою жизнь! Теперь я шоколадный гуру!',
-            image: 'https://r.mobirisesite.com/1166961/assets/images/photo-1608652763120-59aab1d8125c.jpeg',
-            name: 'Анна'
+            image: 'images/1.jpg',
+            alt: 'Шоколадная работа 1'
         },
         {
             id: 2,
-            text: 'Шоколад стал моим хобби и работой!',
-            image: 'https://r.mobirisesite.com/1166961/assets/images/photo-1564564244660-5d73c057f2d2.jpeg',
-            name: 'Иван'
+            image: 'images/2.jpg',
+            alt: 'Шоколадная работа 2'
         },
         {
             id: 3,
-            text: 'Не думал, что смогу так вкусно готовить!',
-            image: 'https://r.mobirisesite.com/1166961/assets/images/photo-1589156191108-c762ff4b96ab.jpeg',
-            name: 'Мария'
+            image: 'images/3.jpg',
+            alt: 'Шоколадная работа 3'
         },
         {
             id: 4,
-            text: 'Курс просто супер! Рекомендую всем!',
-            image: 'https://r.mobirisesite.com/1166961/assets/images/photo-1591084728795-1149f32d9866.jpeg',
-            name: 'Сергей'
+            image: 'images/4.jpg',
+            alt: 'Шоколадная работа 4'
         },
         {
             id: 5,
-            text: 'Шоколадные шедевры на раз-два!',
-            image: 'https://r.mobirisesite.com/1166961/assets/images/photo-1595436065982-84fa400d8d8e.jpeg',
-            name: 'Елена'
+            image: 'images/5.jpg',
+            alt: 'Шоколадная работа 5'
         },
         {
             id: 6,
-            text: 'Теперь я делаю шоколад для друзей и семьи!',
-            image: 'https://r.mobirisesite.com/1166961/assets/images/photo-1541881856704-3c4b2896c0f8.jpeg',
-            name: 'Дмитрий'
+            image: 'images/6.jpg',
+            alt: 'Шоколадная работа 6'
+        },
+        {
+            id: 7,
+            image: 'images/7.jpg',
+            alt: 'Шоколадная работа 7'
+        },
+        {
+            id: 8,
+            image: 'images/8.jpg',
+            alt: 'Шоколадная работа 8'
         }
     ];
+
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [touchStart, setTouchStart] = useState(0);
+    const [touchEnd, setTouchEnd] = useState(0);
+
+    // Автоматическая смена слайдов
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveIndex((prevIndex) => (prevIndex + 1) % testimonialImages.length);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [testimonialImages.length]);
+
+    // Переключение на предыдущий слайд
+    const prevSlide = () => {
+        setActiveIndex((prevIndex) => (prevIndex === 0 ? testimonialImages.length - 1 : prevIndex - 1));
+    };
+
+    // Переключение на следующий слайд
+    const nextSlide = () => {
+        setActiveIndex((prevIndex) => (prevIndex + 1) % testimonialImages.length);
+    };
+
+    // Выбор конкретного слайда
+    const goToSlide = (index) => {
+        setActiveIndex(index);
+    };
+
+    // Обработчики для свайпа на мобильных устройствах
+    const handleTouchStart = (e) => {
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchMove = (e) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        if (touchStart - touchEnd > 50) {
+            nextSlide();
+        }
+        if (touchStart - touchEnd < -50) {
+            prevSlide();
+        }
+    };
 
     return (
         <section id="reviews" className={styles.testimonialsSection}>
             <div className={styles.container}>
-                <h2 className={styles.sectionTitle}>Отзывы</h2>
+                <h2 className={styles.sectionTitle}>Работы и отзывы участниц курса</h2>
+                <div className={styles.decorativeLine}></div>
 
-                <div className={styles.testimonialsGrid}>
-                    {testimonials.map(testimonial => (
-                        <div key={testimonial.id} className={styles.testimonialItem}>
-                            <p className={styles.testimonialText}>{testimonial.text}</p>
-                            <div className={styles.testimonialAvatar}>
-                                <img src={testimonial.image} alt={testimonial.name} />
+                <div 
+                    className={styles.carouselContainer}
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                >
+                    <button className={`${styles.carouselButton} ${styles.prevButton}`} onClick={prevSlide}>
+                        &lt;
+                    </button>
+                    
+                    <div className={styles.carouselSlides}>
+                        {testimonialImages.map((item, index) => (
+                            <div 
+                                key={item.id}
+                                className={`${styles.carouselSlide} ${activeIndex === index ? styles.active : ''}`}
+                                style={{ transform: `translateX(${100 * (index - activeIndex)}%)` }}
+                            >
+                                <img 
+                                    src={item.image} 
+                                    alt={item.alt} 
+                                    className={styles.testimonialImage}
+                                />
                             </div>
-                            <h4 className={styles.testimonialName}>{testimonial.name}</h4>
-                        </div>
+                        ))}
+                    </div>
+                    
+                    <button className={`${styles.carouselButton} ${styles.nextButton}`} onClick={nextSlide}>
+                        &gt;
+                    </button>
+                </div>
+
+                <div className={styles.carouselDots}>
+                    {testimonialImages.map((_, index) => (
+                        <button 
+                            key={index} 
+                            className={`${styles.carouselDot} ${activeIndex === index ? styles.activeDot : ''}`}
+                            onClick={() => goToSlide(index)}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
                     ))}
                 </div>
             </div>
         </section>
     );
-}
+};
 
 export default Testimonials;

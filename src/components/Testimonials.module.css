@@ -1,76 +1,164 @@
 .testimonialsSection {
   padding: 80px 0;
-  background-color: #fff;
+  background-color: #8B5A4B;
+  color: #fff;
+  text-align: center;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px; /* Увеличено с 1200px */
   margin: 0 auto;
   padding: 0 1rem;
 }
 
 .sectionTitle {
-  font-size: 2.5rem;
+  font-size: 3rem; /* Увеличено с 2.5rem */
   font-weight: 700;
   text-align: center;
-  margin-bottom: 3rem;
-  color: #000;
-}
-
-.testimonialsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.testimonialItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.testimonialText {
-  font-size: 1rem;
-  color: #444;
   margin-bottom: 1.5rem;
-  line-height: 1.6;
+  color: #fff;
 }
 
-.testimonialAvatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+.decorativeLine {
+  width: 100px; /* Увеличено с 80px */
+  height: 4px; /* Увеличено с 3px */
+  background-color: #fff;
+  margin: 0 auto 4rem; /* Увеличено с 3rem */
+}
+
+.carouselContainer {
+  position: relative;
+  max-width: 1100px; /* Увеличено с 800px */
+  margin: 0 auto;
   overflow: hidden;
-  margin-bottom: 1rem;
-  border: 3px solid #fff;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.testimonialAvatar img {
+.carouselSlides {
+  display: flex;
+  transition: transform 0.5s ease;
+  height: 900px; /* Увеличено с 500px */
+  position: relative;
+}
+
+.carouselSlide {
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease;
+}
+
+.testimonialImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  border-radius: 10px; /* Увеличено с 8px */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Увеличено */
 }
 
-.testimonialName {
-  font-size: 1.1rem;
-  font-weight: 600;
+.carouselButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px; /* Увеличено с 40px */
+  height: 50px; /* Увеличено с 40px */
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem; /* Увеличено с 1.2rem */
   color: #6d4534;
-  margin-bottom: 0;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Увеличено */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carouselButton:hover {
+  background-color: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prevButton {
+  left: 20px; /* Увеличено с 10px */
+}
+
+.nextButton {
+  right: 20px; /* Увеличено с 10px */
+}
+
+.carouselDots {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px; /* Увеличено с 20px */
+}
+
+.carouselDot {
+  width: 15px; /* Увеличено с 12px */
+  height: 15px; /* Увеличено с 12px */
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  margin: 0 8px; /* Увеличено с 5px */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.activeDot {
+  background-color: #fff;
+  transform: scale(1.3); /* Увеличено с 1.2 */
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .carouselContainer {
+    max-width: 90%;
+  }
+  
+  .carouselSlides {
+    height: 600px; /* Адаптировано для среднего экрана */
+  }
 }
 
 @media (max-width: 992px) {
-  .testimonialsGrid {
-    grid-template-columns: repeat(2, 1fr);
+  .carouselSlides {
+    height: 500px;
+  }
+  
+  .sectionTitle {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  
+  .carouselSlides {
+    height: 400px;
+  }
+  
+  .carouselButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 576px) {
-  .testimonialsGrid {
-    grid-template-columns: 1fr;
+  .carouselSlides {
+    height: 350px;
   }
-
+  
+  .carouselButton {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
   .sectionTitle {
     font-size: 2rem;
   }

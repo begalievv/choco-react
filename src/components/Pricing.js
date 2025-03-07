@@ -20,21 +20,7 @@ const Pricing = () => {
       price: '10000₽',
       description: 'Получите советы от мастера шоколадного дела.',
       image: 'https://r.mobirisesite.com/1166961/assets/images/photo-1565889673146-8e4d54300269.jpeg'
-    },
-    // {
-    //   id: 3,
-    //   title: 'Включенное обучение',
-    //   price: '15000₽',
-    //   description: 'Полный доступ к урокам и практикам с поддержкой.',
-    //   image: 'https://r.mobirisesite.com/1166961/assets/images/photo-1623284060556-37e5ff559dd3.jpeg'
-    // },
-    // {
-    //   id: 4,
-    //   title: 'Бонусный пакет',
-    //   price: '2000₽',
-    //   description: 'Дополнительные рецепты и секреты от шефа.',
-    //   image: 'https://r.mobirisesite.com/1166961/assets/images/photo-1526081715791-7c538f86060e.jpeg'
-    // }
+    }
   ];
 
   const openPaymentModal = (plan) => {

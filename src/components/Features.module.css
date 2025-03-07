@@ -5,7 +5,7 @@
 
 .container {
   width: 100%;
-  max-width: 1400px; /* Увеличиваем максимальную ширину контейнера */
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -19,26 +19,29 @@
 }
 
 .sectionSubtitle {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   text-align: center;
   margin-bottom: 3rem;
   color: #666;
 }
 
-.featuresRow {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  gap: 30px; /* Увеличиваем расстояние между карточками */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .featureCard {
-  flex: 1; /* Каждая карточка занимает равную часть доступного пространства */
   background-color: #fff;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .featureCard:hover {
@@ -48,57 +51,57 @@
 
 .featureImage {
   width: 100%;
-  height: 300px; /* Увеличиваем высоту изображения с 200px до 300px */
+  height: 300px;
   object-fit: cover;
 }
 
 .featureContent {
-  padding: 1.5rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  height: calc(100% - 300px); /* Вычитаем высоту изображения */
+  flex-grow: 1;
 }
 
 .featureTitle {
-  font-size: 1.4rem; /* Увеличиваем размер заголовка */
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
   color: #6d4534;
+  text-align: center;
 }
 
 .featureDescription {
-  font-size: 1.1rem; /* Увеличиваем размер текста */
+  font-size: 1.2rem;
   color: #666;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   line-height: 1.5;
-  flex-grow: 1; /* Позволяет описанию растягиваться и заполнять доступное пространство */
+  flex-grow: 1;
+  text-align: center;
 }
 
 .featureButton {
-  display: inline-block;
+  display: block;
   background-color: #6d4534;
   color: white;
   border: none;
   border-radius: 30px;
-  padding: 0.8rem 1.5rem; /* Увеличиваем размер кнопки */
-  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
   text-decoration: none;
   transition: background-color 0.3s ease;
   text-align: center;
+  margin: 0 auto;
+  width: 80%;
 }
 
 .featureButton:hover {
   background-color: #5a392c;
 }
 
-@media (max-width: 1000px) {
-  .featuresRow {
-    flex-wrap: wrap;
-  }
-  
-  .featureCard {
-    flex: 0 0 calc(50% - 15px);
-    margin-bottom: 30px;
+@media (max-width: 992px) {
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
 }
 
@@ -107,11 +110,12 @@
     font-size: 2rem;
   }
   
-  .featureCard {
-    flex: 0 0 100%;
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
   }
   
   .featureImage {
-    height: 250px; /* Немного уменьшаем высоту изображения на мобильных устройствах */
+    height: 250px;
   }
 }

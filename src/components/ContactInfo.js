@@ -14,10 +14,10 @@ const ContactInfo = () => {
             </div>
             <h3 className={styles.contactTitle}>Телефон</h3>
             <p className={styles.contactText}>
-              <a href="tel:+71234567890">+7 (123) 456-78-90</a>
+              <a href="tel:+71234567890">+996 (777) 77 77 77</a>
             </p>
             <p className={styles.contactText}>
-              <a href="tel:+71234567891">+7 (123) 456-78-91</a>
+            <a href="tel:+71234567890">+996 (555) 55 55 55</a>
             </p>
           </div>
           
@@ -27,10 +27,10 @@ const ContactInfo = () => {
             </div>
             <h3 className={styles.contactTitle}>Email</h3>
             <p className={styles.contactText}>
-              <a href="mailto:info@chocolate-course.ru">info@chocolate-course.ru</a>
+              <a href="mailto:info@chocolate-course.ru">info@chocolate-course-test.kg</a>
             </p>
             <p className={styles.contactText}>
-              <a href="mailto:support@chocolate-course.ru">support@chocolate-course.ru</a>
+              <a href="mailto:support@chocolate-course.ru">support@chocolate-course.kg</a>
             </p>
           </div>
           
