@@ -12,14 +12,16 @@ const Pricing = () => {
       title: 'Самостоятельное обучение',
       price: '5000₽',
       description: 'Учитесь в своем темпе с доступом к материалам курса.',
-      image: 'https://r.mobirisesite.com/1166961/assets/images/photo-1551578657-a7e74acb0135.jpeg'
+      image: 'images/tarif1.jpg',
+      isBestseller: false
     },
     {
       id: 2,
       title: 'Консультация с автором',
       price: '10000₽',
       description: 'Получите советы от мастера шоколадного дела.',
-      image: 'https://r.mobirisesite.com/1166961/assets/images/photo-1565889673146-8e4d54300269.jpeg'
+      image: 'images/tarif2.jpg',
+      isBestseller: true
     }
   ];
 
@@ -44,6 +46,9 @@ const Pricing = () => {
         <div className={styles.pricingGrid}>
           {pricingPlans.map(plan => (
             <div key={plan.id} className={styles.pricingCard}>
+              {plan.isBestseller && (
+                <div className={styles.bestsellerChip}>Хит продаж</div>
+              )}
               <img 
                 src={plan.image} 
                 alt={plan.title} 
