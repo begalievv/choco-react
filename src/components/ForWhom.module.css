@@ -123,3 +123,42 @@
       font-size: 1.8rem;
     }
   }
+  .moduleImage {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .moduleImage img {
+    max-width: 100%;
+    max-height: 500px; /* Установлена максимальная высота 500px */
+    height: auto;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    object-fit: contain; /* Сохраняет пропорции изображения */
+  }
+  
+  @media (max-width: 992px) {
+    .modulesContainer {
+      flex-direction: column;
+    }
+    
+    .modulesContainer .moduleImage {
+      order: -1;
+      margin-bottom: 2rem;
+    }
+    
+    .moduleImage img {
+      max-width: 500px;
+      width: 100%;
+      max-height: 400px; /* Уменьшенная максимальная высота для планшетов */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .moduleImage img {
+      max-height: 300px; /* Еще меньшая высота для мобильных устройств */
+    }
+  }

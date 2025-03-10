@@ -28,6 +28,7 @@
 }
 
 .pricingCard {
+  position: relative;
   flex: 0 0 400px;
   max-width: 400px;
   background-color: #fff;
@@ -41,6 +42,21 @@
 .pricingCard:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.bestsellerChip {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #ff0a0a;
+  color: #e6e4e3;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  z-index: 5;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transform: rotate(5deg);
 }
 
 .pricingImage {
@@ -117,36 +133,4 @@
     flex: 0 0 100%;
     max-width: 400px;
   }
-}
-/* Добавляем стили для чипа "Хит продаж" */
-.bestsellerChip {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: #ec1515;
-  color: #e8c6c6;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  z-index: 5;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  transform: rotate(5deg);
-}
-
-.pricingCard {
-  position: relative;
-  flex: 0 0 400px;
-  max-width: 400px;
-  background-color: #fff;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 0 auto 20px;
-}
-
-.pricingCard:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }

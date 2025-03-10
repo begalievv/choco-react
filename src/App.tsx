@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Metrics from './components/Metrics';
 import Features from './components/Features';
+import Testimonials2 from './components/Testimonials2';
 import Testimonials from './components/Testimonials';
 import Gallery from './components/Gallery'; // Секция "Наши шедевры"
 import RunningText from './components/RunningText';
@@ -32,7 +33,8 @@ function App() {
       {/* <News /> */}
       <Pricing />
       <FAQ />
-      <Partners />
+      {/* <Partners /> */}
+      <Testimonials2 />
       <Newsletter />
       <ContactForm />
       <ContactInfo /> {/* Добавлен новый компонент ContactInfo */}
