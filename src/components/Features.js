@@ -22,7 +22,7 @@ const Features = () => {
       id: 3,
       title: 'БОНУСЫ',
       description: 'Эксклюзивные материалы и рецепты',
-      image: 'images/bonus.jpg',
+      image: 'images/bonus2.jpg',
       link: '#contact'
     },
     {

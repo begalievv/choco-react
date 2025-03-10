@@ -43,6 +43,26 @@ const Testimonials = () => {
             id: 8,
             image: 'images/8.jpg',
             alt: 'Шоколадная работа 8'
+        },
+        {
+            id: 9,
+            image: 'images/9.jpg',
+            alt: 'Шоколадная работа 8'
+        },
+        {
+            id: 10,
+            image: 'images/10.jpg',
+            alt: 'Шоколадная работа 8'
+        },
+        {
+            id: 11,
+            image: 'images/11.jpg',
+            alt: 'Шоколадная работа 8'
+        },
+        {
+            id: 12,
+            image: 'images/12.jpg',
+            alt: 'Шоколадная работа 8'
         }
     ];
 
