@@ -12,7 +12,13 @@ export const BASE_URL = 'https://localhost:7126'; // Пустая строка �
  */
 export const submitContactForm = async (contactData) => {
   try {
-    const response = await fetch(`${BASE_URL}/Contact/AddContact`, {
+    // Проверяем, прошел ли пользователь капчу
+    if (!contactData.captchaVerified) {
+      throw new Error('Капча не подтверждена');
+    }
+
+    // const response = await fetch(`${BASE_URL}/api/Contact/AddContact`, {
+      const response = await fetch(`https://n8n.tech-demo.su/webhook/chocolate-contacts`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -21,10 +27,12 @@ export const submitContactForm = async (contactData) => {
     });
 
     if (!response.ok) {
+      const errorData = await response.text();
+      console.error('Server error response:', errorData);
       throw new Error('Ошибка отправки данных');
     }
 
-    return await response.json();
+    return response;
   } catch (error) {
     console.error('API Error: ', error);
     throw error;

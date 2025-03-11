@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaFacebook, FaTwitter, FaInstagram, FaTiktok } from 'react-icons/fa';
 import { BASE_URL, submitContactForm } from '../api/apiService';
 import styles from './ContactForm.module.css';
+import Captcha from './Captcha'; // Импортируем компонент капчи
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const ContactForm = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState({ success: false, message: '' });
+    const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,24 +24,38 @@ const ContactForm = () => {
         });
     };
 
+    // Функция для обработки проверки капчи
+    const handleCaptchaVerify = (isVerified) => {
+        setIsCaptchaVerified(isVerified);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Проверяем, прошел ли пользователь капчу
+        if (!isCaptchaVerified) {
+            setSubmitStatus({
+                success: false,
+                message: 'Пожалуйста, подтвердите, что вы не робот, пройдя проверку капчи.'
+            });
+            return;
+        }
+
         setIsSubmitting(true);
         setSubmitStatus({ success: false, message: '' });
 
         try {
-            const response = await fetch(`${BASE_URL}/api/Contact/AddContact`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: formData.name,
-                    email: formData.email,
-                    phone: formData.phone,
-                    text: formData.text
-                }),
-            });
+            // Формируем объект данных для отправки
+            const contactData = {
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                text: formData.text,
+                captchaVerified: isCaptchaVerified // Добавляем флаг проверки капчи
+            };
+            
+            // Используем функцию из apiService для отправки формы
+            const response = await submitContactForm(contactData);
 
             if (!response.ok) {
                 const errorText = await response.text();
@@ -60,6 +76,8 @@ const ContactForm = () => {
                 phone: '',
                 text: ''
             });
+            // Сбрасываем статус капчи
+            setIsCaptchaVerified(false);
         } catch (error) {
             console.error('Error submitting form:', error);
             setSubmitStatus({
@@ -130,16 +148,19 @@ const ContactForm = () => {
                         ></textarea>
                     </div>
 
+                    {/* Интеграция компонента капчи */}
+                    <div className={styles.formGroup}>
+                        <Captcha onVerify={handleCaptchaVerify} />
+                    </div>
+
                     <button
                         type="submit"
                         className={styles.submitButton}
-                        disabled={isSubmitting}
+                        disabled={isSubmitting || !isCaptchaVerified}
                     >
                         {isSubmitting ? 'Отправка...' : 'Отправить сообщение'}
                     </button>
                 </form>
-
-               
             </div>
         </section>
     );
